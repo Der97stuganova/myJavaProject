@@ -1,0 +1,89 @@
+package school.lesson1;
+import...
+public class HomeWork2 {
+    private static OptionalDataException array;
+    private static int[] arr;
+
+    public static void main(String[] args, String first, int i, String second) {
+        char c1 = first.charAt(i);
+        char c2 = second.charAt(i);
+        System.out.println(myTask (4, 8));;
+        myTask2 ();
+        System.out.println(myTask3 (-77));
+        myTask4 ("Happy", 2);
+        System.out.println(myTask5 (2021));
+        myTask7();
+        changeArray();
+        fillDiagonal();
+
+    }
+
+    public static boolean myTask(int a, int b) {
+        int sum = a + b;
+        if (sum >= 10 & sum <= 20) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public static void myTask2() {
+        int value = 100;
+        if (value >= 0) {
+            System.out.println ( "Число положительное" );
+        } else {
+            System.out.println ( "Число отрицательное" );
+        }
+    }
+
+    public static boolean myTask3(int value) {
+        if (value < 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public static void myTask4(String word, int times) {
+        for ( int i = 2; i <=times; i++){
+            System.out.println ("["+i+"]"+""+ word);
+        }
+    }
+
+    public static boolean myTask5(int year) {
+        if ((year % 4 == 0 && year % 100 != 0) || year % 400 == 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public static void myTask7() {
+        int[] arr = new int[100];
+        for (int i = 0; i < arr.length; i++) {
+            arr[i] = i + 1;
+            System.out.print(arr[i] + " ");
+        }
+    }
+    public static OptionalDataException changeArray() {
+        for (int i = 0; i < arr.length; i++)
+            if (arr[i] < 6)
+                arr[i] *= 2;
+        return array;
+
+    }
+    private static void fillDiagonal() {(int size, Arrays; Arrays) {
+        int[][] matrix = new int[size][size];
+        for (int i = 0; i < size; i++) {
+            matrix[i][i] = 1;
+            matrix[i][size - i - 1] = 1;
+        }
+        System.out.println(Arrays.deepToString(matrix));
+        for (int i = 0; i < size; i++)
+            System.out.println(Arrays.toString(matrix[i]));
+    }
+}
+
+}
+
+
