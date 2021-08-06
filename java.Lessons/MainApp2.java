@@ -28,6 +28,50 @@ class Employee {
     private int salary;
     private int age;
 
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getPosition() {
+        return position;
+    }
+
+    public void setPosition(String position) {
+        this.position = position;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public int getSalary() {
+        return salary;
+    }
+
+    public void setSalary(int salary) {
+        this.salary = salary;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
     public Employee(String name, String position, String email, String phone, int salary, int age) {
         this.name = name;
         this.position = position;
@@ -44,9 +88,8 @@ class Employee {
     @Override
     public String toString() {
         return String.format("Имя: %s \tДолжность: %s \nEmail: %s \t Номер телефона: %s \n Зарплата: %d \t Возраст: %d \n",
-                name, position, email, phone, salary, age);
+                getName(), getPosition(), getEmail(), getPhone(), getSalary(), getAge());
     }
 
 }
-
 
