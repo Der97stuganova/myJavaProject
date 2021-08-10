@@ -1,4 +1,4 @@
-import learn.andersen.school.lessons.lesson4.task1_5;
+package learn.andersen.school.lessons.lesson4.task1_5;
 
 class Dog extends Animal {
     private final int MAX_RUN_LENGTH = 500;
