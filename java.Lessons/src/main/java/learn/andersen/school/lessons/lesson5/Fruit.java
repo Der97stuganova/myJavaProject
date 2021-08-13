@@ -1,9 +1,9 @@
 package learn.andersen.school.lessons.lesson5;
 
-public abstract class Fruit {
-    protected float weight;
+abstract class Fruit {
+    private float weight;
 
-    public Fruit(float weight) {
+    Fruit(float weight) {
         this.weight = weight;
     }
 

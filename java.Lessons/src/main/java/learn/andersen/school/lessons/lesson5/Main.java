@@ -1,47 +1,62 @@
 package learn.andersen.school.lessons.lesson5;
 
-import java.util.ArrayList;
 import java.util.Arrays;
-
+import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-        Integer[] intArr = new Integer[2];
 
-        intArr[0] = 4;
-        intArr[1] = 27;
+        String[] arr = {"I", "live", "in", "Cheboksary"};
 
-        System.out.println(Arrays.deepToString(intArr));
-        swap(intArr, 0, 1);
-        System.out.println(Arrays.deepToString(intArr));
-        ArrayList<Integer> arrList = toArrayList(intArr);
+        System.out.println("Задача 1\n" + Arrays.toString(arr));
+        swapElements(arr, 2, 3);
+        System.out.println(Arrays.toString(arr));
 
-        // Задание 3
-        Apple apple1 = new Apple();
-        Apple apple2 = new Apple();
-        Apple apple3 = new Apple();
+        System.out.println("Задача 2");
+        Orange orange = new Orange();
+        Apple apple = new Apple();
+        Box<Orange> orangeBox1 = new Box();
+        Box<Orange> orangeBox2 = new Box();
+        Box<Apple> appleBox = new Box();
+        orangeBox1.add(new Orange());
+        orangeBox1.add(new Orange());
+        orangeBox1.add(new Orange());
 
-        Orange orange1 = new Orange();
-        Orange orange2 = new Orange();
+        for (int i = 0; i < 4; i++) {
+            orangeBox2.add(new Orange());
+        }
+        for (int i = 0; i < 6; i++) {
+            appleBox.add(new Apple());
+        }
 
-        Box<Apple> box1 = new Box<Apple>(apple1, apple2, apple3);
-        Box<Orange> box2 = new Box<Orange>(orange1, orange2);
+        orangeBox1.info();
+        orangeBox2.info();
+        appleBox.info();
 
-        System.out.println(box1.compare(box2));
+        Float orange1Weigth = orangeBox1.getWeight();
+        Float orange2Weigth = orangeBox2.getWeight();
+        Float appleWeigth = appleBox.getWeight();
+        System.out.println("Вес коробки 1 с апельсинами: " + orange1Weigth);
+        System.out.println("Вес коробки 2 с апельсинами: " + orange2Weigth);
+        System.out.println("Вес коробки с яблоками: " + appleWeigth);
 
-        Box<Orange> box3 = new Box<Orange>();
-        box2.transfer(box3);
+        System.out.println("Сравнить вес orangeBox1 и appleBox: " + orangeBox1.compare(appleBox));
+        System.out.println("Сравнить вес orangeBox2 и appleBox: " + orangeBox2.compare(appleBox));
+
+        orangeBox1.moveAt(orangeBox2);
+
+        orangeBox1.info();
+        orangeBox2.info();
+        appleBox.info();
     }
 
-
-    /////Задание 1. Написать метод, который меняет два элемента массива местами.(массив может быть любого ссылочного типа).
-    public static void swap(Object[] arr, int index1, int index2) {
-        Object tmp = arr[index1];
-        arr[index1] = arr[index2];
-        arr[index2] = tmp;
+    private static <T> void swapElements(T[] array, int index1, int index2) {
+        T temp = array[index1];
+        array[index1] = array[index2];
+        array[index2] = temp;
     }
 
-    public static <T> ArrayList<T> toArrayList(T[] arr) {
-        return new ArrayList<T>(Arrays.asList(arr));
+    private static <E> List<E> convertToList(E[] array) {
+        return Arrays.asList(array);
     }
 }

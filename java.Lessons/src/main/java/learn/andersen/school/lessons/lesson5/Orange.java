@@ -1,7 +1,13 @@
 package learn.andersen.school.lessons.lesson5;
 
 public class Orange extends Fruit {
-    public Orange() {
+
+    Orange() {
         super(1.5f);
+    }
+
+    @Override
+    public String toString() {
+        return "апельсины";
     }
 }

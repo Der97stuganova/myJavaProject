@@ -3,42 +3,54 @@ package learn.andersen.school.lessons.lesson5;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class Box<T extends Fruit> {
-    private ArrayList<T> items;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
-    public Box(T... items) {
-        this.items = new ArrayList<T>(Arrays.asList(items));
+class Box<T extends Fruit> {
+    public List<T> getList() {
+        return list;
     }
 
-    public void add(T... items) {
-        this.items.addAll(Arrays.asList(items));
+    private List<T> list;
+
+    public Box(T... obj) {
+        list = Arrays.asList(obj);
     }
 
-    public void remove(T... items) {
-        for (T item: items) this.items.remove(item);
+    public Box() {
+        list = new ArrayList<T>();
     }
 
-    public ArrayList<T> getItems() {
-        return new ArrayList<T>(items);
+    void add(T obj) {
+        list.add(obj);
     }
 
-    public void clear() {
-        items.clear();
+    void moveAt(Box<T> box) {
+//        for (T obj : list) {
+//            box.add(obj);
+//        }
+        box.getList().addAll(list);
+        list.clear();
     }
 
-    public float getWeight() {
-        if (items.size() == 0) return 0;
-        float weight = 0;
-        for (T item: items) weight += item.getWeight();
-        return weight;
+    void info() {
+        if (list.isEmpty()) {
+            System.out.println("Коробка пуста");
+        } else {
+            System.out.println("В коробке находятся " + list.get(0).toString() + " в количестве: " + list.size());
+        }
     }
 
-    public boolean compare(Box box) {
+    float getWeight() {
+        if (list.isEmpty()) {
+            return 0;
+        } else {
+            return list.size() * list.get(0).getWeight();
+        }
+    }
+
+    boolean compare(Box<? extends Fruit> box) {
         return this.getWeight() == box.getWeight();
-    }
-
-    public void transfer(Box<? super T> box) {
-        box.items.addAll(this.items);
-        clear();
     }
 }
