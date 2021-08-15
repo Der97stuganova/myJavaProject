@@ -1,0 +1,7 @@
+package learn.andersen.school.lessons.lesson6;
+
+class CustomException extends Exception {
+    CustomException(String message) {
+        super(message);
+    }
+}
