@@ -2,55 +2,50 @@ package learn.andersen.school.lessons.lesson5;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collection;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+public class Box<T extends Fruit> {
+   
+    private ArrayList<T> fruits;
 
-class Box<T extends Fruit> {
-    public List<T> getList() {
-        return list;
+  
+    Box(T... fruits) {
+        this.fruits = new ArrayList<T>(Arrays.asList(fruits));
     }
-
-    private List<T> list;
-
-    public Box(T... obj) {
-        list = Arrays.asList(obj);
+  
+    public void add(T... fruits) {
+        this.fruits.addAll(Arrays.asList(fruits));
     }
-
-    public Box() {
-        list = new ArrayList<T>();
+   
+    public void remove(T... items) {
+        for (T item: items) this.fruits.remove(item);
     }
-
-    void add(T obj) {
-        list.add(obj);
+  
+    private void clear() {
+        fruits.clear();
     }
-
-    void moveAt(Box<T> box) {
-//        for (T obj : list) {
-//            box.add(obj);
-//        }
-        box.getList().addAll(list);
-        list.clear();
-    }
-
-    void info() {
-        if (list.isEmpty()) {
-            System.out.println("Коробка пуста");
-        } else {
-            System.out.println("В коробке находятся " + list.get(0).toString() + " в количестве: " + list.size());
+  
+    protected float getWeight() {
+        if(fruits.size() == 0) return 0; 
+        float weight = 0;
+        for (T fruit: fruits) {
+            weight = weight+fruit.getWeight();
         }
+        return weight;
     }
-
-    float getWeight() {
-        if (list.isEmpty()) {
-            return 0;
-        } else {
-            return list.size() * list.get(0).getWeight();
-        }
-    }
-
-    boolean compare(Box<? extends Fruit> box) {
+ 
+    boolean compare(Box box) {
         return this.getWeight() == box.getWeight();
+    }
+  
+    void shift(Box<Apple> box) {
+        box.fruits.addAll((Collection<? extends Apple>) this.fruits);
+        clear(); 
+    }
+
+    public void info() {
+    }
+
+    public void moveAt(Box<T> orangeBox2) {
     }
 }
