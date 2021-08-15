@@ -48,7 +48,12 @@ public class Main {
         orangeBox1.info();
         orangeBox2.info();
         appleBox.info();
+
+
+        Box<Apple> box3 = new Box<Apple>();
+        orangeBox1.shift(box3);
     }
+
 
     private static <T> void swapElements(T[] array, int index1, int index2) {
         T temp = array[index1];
@@ -60,3 +65,4 @@ public class Main {
         return Arrays.asList(array);
     }
 }
+
