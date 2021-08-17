@@ -67,27 +67,4 @@ public class Main {
             return sum;
         }
     }
-
-
-
-    private static void Calculate(double[][] value) {
-
-        for (int i = 0; i < value.length; i++) {
-            for (int j = 0; j < value[i].length; j += 2) {
-                double bmi = value[i][j] / (value[i][j + 1] * value[i][j + 1]);
-
-                System.out.printf("Weight: %.2f\tHeight: %.2f | BMI: %.2f | ", value[i][j], value[i][j + 1], bmi);
-
-                if (bmi < 18.5) {
-                    System.out.print("Underweight\n");
-                } else if (bmi > 18.5 && bmi < 25.0) {
-                    System.out.print("Normal\n");
-                } else if (bmi > 25.0 && bmi < 30.0) {
-                    System.out.print("Overweight\n");
-                } else {
-                    System.out.print("Obesity\n");
-                }
-            }
-        }
-    }
 }
